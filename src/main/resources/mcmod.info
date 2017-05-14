@@ -1,0 +1,16 @@
+[
+{
+  "modid": "sum",
+  "name": "UnLonely",
+  "description": "Can you not play multiplayer? Bad connection? Mom said no? Well this mod helps bring the feel of multiplayer into single player!",
+  "version": "1.0",
+  "mcversion": "1.11.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SuperUnitato"],
+  "credits": "Me, myself, and I",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
