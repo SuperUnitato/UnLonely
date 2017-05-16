@@ -1,0 +1,14 @@
+package com.SuperUnitato.UnLonely.entities;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
+
+public class EntitiesPassivePerson extends EntityCreature{
+	
+	public EntitiesPassivePerson(){
+		
+	}
+
+}

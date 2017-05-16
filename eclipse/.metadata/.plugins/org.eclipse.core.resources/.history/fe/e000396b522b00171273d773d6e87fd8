@@ -1,0 +1,7 @@
+package com.SuperUnitato.UnLonely.entities;
+
+import net.minecraft.entity.Entity;
+
+public class EntitiesHostilePerson extends Entity {
+
+}

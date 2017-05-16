@@ -11,7 +11,7 @@ public class storage implements Capability.IStorage<IMoney>{
 
 	@Override
 	public NBTBase writeNBT(Capability<IMoney> capability, IMoney instance, EnumFacing side) {
-		return new NBTTagFloat(instance.getBalance());
+		return new NBTTagInt(instance.getBalance());
 	}
 
 	@Override

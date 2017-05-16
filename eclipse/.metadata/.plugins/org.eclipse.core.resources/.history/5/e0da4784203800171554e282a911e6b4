@@ -1,0 +1,10 @@
+package com.SuperUnitato.UnLonely.playerdata;
+
+public interface moneyCapabilty {
+
+	public void getbalance();
+	public void setBalance();
+	public void addBalance(int ammount);
+	public void takeBalance(int ammount);
+	
+}

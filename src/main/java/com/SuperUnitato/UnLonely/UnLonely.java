@@ -42,23 +42,24 @@ public class UnLonely {
 		ModBlocks.init();
 		ModBlocks.register();
 		ModPlayerData.register();
+		proxy.preInit(event);
 
 	}
 	
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
-		proxy.init();
 		ModCrafting.register();
 		SumPacketInstance.INSTANCE.registerMessage(MessageHandler.class, PacketCreator.class, 0, Side.SERVER);
 		SumPacketInstance.INSTANCE.registerMessage(MessageHandler.class, PacketCreator.class, 1, Side.CLIENT);
+		proxy.init(event);
 		
 	}
 	
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event)
 	{
-		
+		proxy.postInit(event);
 	}
 	
 	public static CreativeTabs tabUnLonely = new CreativeTabs("tab_unlonely"){

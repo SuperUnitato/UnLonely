@@ -1,0 +1,9 @@
+package init;
+
+import net.minecraftforge.common.capabilities.CapabilityManager;
+
+public class ModPlayerData {
+	
+	CapabilityManager.INSTANCE.register(moneyCapability, storage, moneyImplementation);
+
+}

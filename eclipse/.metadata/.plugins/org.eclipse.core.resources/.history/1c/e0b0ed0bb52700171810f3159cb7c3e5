@@ -1,0 +1,24 @@
+package com.SuperUnitato.UnLonely.blocks;
+
+import com.SuperUnitato.UnLonely.Reference;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class BlockAtm extends Block {
+
+	public BlockAtm() {
+		
+		super(Material.IRON);
+		setUnlocalizedName(Reference.UnLonelyBlocks.ATM.getUnlocalizedName());
+		setRegistryName(Reference.UnLonelyBlocks.ATM.getRegistryName());
+		
+		setHardness(10.0F);
+		setResistance(50.0F);
+		setLightLevel(0.3F);
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.SuperUnitato.UnLonely.playerdata;
+
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.util.EnumFacing;
+import net.minecraftforge.common.capabilities.Capability;
+
+public class storage implements Capability.IStorage<moneyCapability>{
+
+	@Override
+	public NBTBase writeNBT(Capability<moneyCapability> capability, moneyCapability instance, EnumFacing side) {
+		
+		return  null;
+	}
+
+	@Override
+	public void readNBT(Capability<moneyCapability> capability, moneyCapability instance, EnumFacing side, NBTBase nbt) {
+		
+		
+	}
+
+	
+
+}

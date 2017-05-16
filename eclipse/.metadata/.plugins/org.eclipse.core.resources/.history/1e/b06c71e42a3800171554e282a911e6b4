@@ -1,0 +1,14 @@
+package com.SuperUnitato.UnLonely.proxy;
+
+import com.SuperUnitato.UnLonely.playerdata.CapabilityHandler;
+
+import net.minecraftforge.common.MinecraftForge;
+
+public class ServerProxy implements CommonProxy{
+
+	@Override
+	public void init() {
+		MinecraftForge.EVENT_BUS.register(CapabilityHandler);
+	}
+
+}

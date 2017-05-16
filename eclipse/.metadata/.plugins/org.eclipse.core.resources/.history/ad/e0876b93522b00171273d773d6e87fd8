@@ -1,0 +1,30 @@
+package com.SuperUnitato.UnLonely.entities;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.nbt.NBTTagCompound;
+
+public class EntitiesPassivePerson extends Entity{
+	
+	public EntitiesPassivePerson(){
+		entityInit();
+	}
+
+	@Override
+	protected void entityInit() {
+		
+		
+	}
+
+	@Override
+	protected void readEntityFromNBT(NBTTagCompound compound) {
+		
+		
+	}
+
+	@Override
+	protected void writeEntityToNBT(NBTTagCompound compound) {
+		
+		
+	}
+
+}

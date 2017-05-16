@@ -1,0 +1,8 @@
+item.OneDollar.name=One dollar bill
+item.FiveDollar.name=Five dollar bill
+item.TenDollar.name=Ten dollar bill
+item.TwentyDollar.name=Twenty dollar bill
+item.FiftyDollar.name=Fifty dollar bill
+item.OnehundredDollar.name=One hundred dollar bill
+tile.atm.name=ATM
+itemGroup.tab_unlonely=UnLonely 

@@ -1,0 +1,18 @@
+package com.SuperUnitato.UnLonely.proxy;
+
+
+import com.SuperUnitato.UnLonely.playerdata.CapabilityHandler;
+import init.ModBlocks;
+import init.ModItems;
+import net.minecraftforge.common.MinecraftForge;
+
+public class ClientProxy implements CommonProxy {
+
+	@Override
+	public void init() {
+		ModItems.registerRenders();
+		ModBlocks.registerRenders();
+		MinecraftForge.EVENT_BUS.register(CapabilityHandler);
+	}
+
+}

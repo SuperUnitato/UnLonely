@@ -1,0 +1,11 @@
+package com.SuperUnitato.UnLonely.proxy;
+
+import net.minecraftforge.common.MinecraftForge;
+
+public class ServerProxy implements CommonProxy{
+
+	@Override
+	public void init() {
+	}
+
+}

@@ -7,13 +7,14 @@ import init.ModItems;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 	
-	private int inventorySlots = 35;
+	private int slot;
 	
 	ItemStack one = new ItemStack(ModItems.onedollar);
 	ItemStack five = new ItemStack(ModItems.fivedollar);
@@ -22,10 +23,10 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 	ItemStack fifty = new ItemStack(ModItems.fiftydollar);
 	ItemStack onehundred = new ItemStack(ModItems.onehundreddollar);
 	
-	 
-
 	@Override
 	public IMessage onMessage(PacketCreator message, MessageContext ctx) {
+		
+		System.out.println("in message");
 		
 		EntityPlayerMP serverPlayer = ctx.getServerHandler().playerEntity;
 		IMoney money = serverPlayer.getCapability(MoneyProvider.MONEY_CAP, null);
@@ -35,17 +36,18 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			System.out.println("not null");
 		}
 		
+		//money seems to be null
+		if(!(money != null)){
+			System.out.println("money bad");
+		}
+		
 		switch(ID){
 			//deposits
 			case 0:
 				if(serverPlayer.inventory.hasItemStack(one)){
-					for(int i = 0; i < inventorySlots; i++){
-						if(serverPlayer.inventory.getStackInSlot(i) == one){
-							money.addBalance(1);
-							serverPlayer.inventory.removeStackFromSlot(i);
-							break;
-						}
-					}
+					slot = serverPlayer.inventory.getSlotFor(one);
+					
+					money.addBalance(1);
 				} else {
 					
 				}
@@ -53,13 +55,9 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 				
 			case 1:
 				if(serverPlayer.inventory.hasItemStack(five)){
-					for(int i = 0; i < inventorySlots; i++){
-						if(serverPlayer.inventory.getStackInSlot(i) == five){
-							money.addBalance(5);
-							serverPlayer.inventory.removeStackFromSlot(i);
-							break;
-						}
-					}
+					slot = serverPlayer.inventory.getSlotFor(five);
+					
+					money.addBalance(5);
 				} else {
 					
 				}
@@ -68,13 +66,9 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			
 			case 2:
 				if(serverPlayer.inventory.hasItemStack(ten)){
-					for(int i = 0; i < inventorySlots; i++){
-						if(serverPlayer.inventory.getStackInSlot(i) == ten){
-							money.addBalance(10);
-							serverPlayer.inventory.removeStackFromSlot(i);
-							break;
-						}
-					}
+						slot = serverPlayer.inventory.getSlotFor(ten);
+						
+						money.addBalance(10);
 				} else {
 					
 				}
@@ -82,13 +76,9 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 				
 			case 3:
 				if(serverPlayer.inventory.hasItemStack(twenty)){
-					for(int i = 0; i < inventorySlots; i++){
-						if(serverPlayer.inventory.getStackInSlot(i) == twenty){
-							money.addBalance(20);
-							serverPlayer.inventory.removeStackFromSlot(i);
-							break;
-						}
-					}
+						slot = serverPlayer.inventory.getSlotFor(twenty);
+						
+						money.addBalance(20);
 				} else {
 					
 				}
@@ -96,14 +86,9 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 				
 			case 4:
 				if(serverPlayer.inventory.hasItemStack(fifty)){
-					for(int i = 0; i < inventorySlots; i++){
-						if(serverPlayer.inventory.getStackInSlot(i).isItemEqual(fifty)){
-							System.out.println("70");
-							money.addBalance(50);
-							serverPlayer.inventory.removeStackFromSlot(i);
-							break;
-						}
-					}
+					slot = serverPlayer.inventory.getSlotFor(fifty);
+					serverPlayer.inventory.getStackInSlot(slot).shrink(1);
+					//money.addBalance(50);
 				} else {
 					
 				}
@@ -111,13 +96,9 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 				
 			case 5:
 				if(serverPlayer.inventory.hasItemStack(onehundred)){
-					for(int i = 0; i < inventorySlots; i++){
-						if(serverPlayer.inventory.getStackInSlot(i) == onehundred){
-							money.addBalance(100);
-							serverPlayer.inventory.removeStackFromSlot(i);
-							break;
-						}
-					}
+					slot = serverPlayer.inventory.getSlotFor(onehundred);
+					
+					money.addBalance(100);
 				} else {
 					
 				}
