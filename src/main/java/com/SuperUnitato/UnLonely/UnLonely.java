@@ -8,7 +8,6 @@ import com.SuperUnitato.UnLonely.proxy.CommonProxy;
 import init.ModBlocks;
 import init.ModCrafting;
 import init.ModItems;
-import init.ModPlayerData;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -41,7 +40,6 @@ public class UnLonely {
 		ModItems.register();
 		ModBlocks.init();
 		ModBlocks.register();
-		ModPlayerData.register();
 		proxy.preInit(event);
 
 	}
