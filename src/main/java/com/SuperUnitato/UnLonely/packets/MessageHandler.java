@@ -26,16 +26,10 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 	@Override
 	public IMessage onMessage(PacketCreator message, MessageContext ctx) {
 		
-		System.out.println("in message");
-		
 		EntityPlayerMP serverPlayer = ctx.getServerHandler().playerEntity;
 		IMoney money = serverPlayer.getCapability(MoneyProvider.MONEY_CAP, null);
 		int ID = message.toSend;
-		
-		if(serverPlayer != null){
-			System.out.println("not null");
-		}
-		
+
 		//money seems to be null
 		if(!(money != null)){
 			System.out.println("money bad");
@@ -46,8 +40,9 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			case 0:
 				if(serverPlayer.inventory.hasItemStack(one)){
 					slot = serverPlayer.inventory.getSlotFor(one);
-					
+					serverPlayer.inventory.decrStackSize(slot, 1);
 					money.addBalance(1);
+					System.out.println(money.getBalance());
 				} else {
 					
 				}
@@ -56,7 +51,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			case 1:
 				if(serverPlayer.inventory.hasItemStack(five)){
 					slot = serverPlayer.inventory.getSlotFor(five);
-					
+					serverPlayer.inventory.decrStackSize(slot, 1);
 					money.addBalance(5);
 				} else {
 					
@@ -67,7 +62,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			case 2:
 				if(serverPlayer.inventory.hasItemStack(ten)){
 						slot = serverPlayer.inventory.getSlotFor(ten);
-						
+						serverPlayer.inventory.decrStackSize(slot, 1);
 						money.addBalance(10);
 				} else {
 					
@@ -77,7 +72,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			case 3:
 				if(serverPlayer.inventory.hasItemStack(twenty)){
 						slot = serverPlayer.inventory.getSlotFor(twenty);
-						
+						serverPlayer.inventory.decrStackSize(slot, 1);
 						money.addBalance(20);
 				} else {
 					
@@ -87,8 +82,8 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			case 4:
 				if(serverPlayer.inventory.hasItemStack(fifty)){
 					slot = serverPlayer.inventory.getSlotFor(fifty);
-					serverPlayer.inventory.getStackInSlot(slot).shrink(1);
-					//money.addBalance(50);
+					serverPlayer.inventory.decrStackSize(slot, 1);
+					money.addBalance(50);
 				} else {
 					
 				}
@@ -97,7 +92,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			case 5:
 				if(serverPlayer.inventory.hasItemStack(onehundred)){
 					slot = serverPlayer.inventory.getSlotFor(onehundred);
-					
+					serverPlayer.inventory.decrStackSize(slot, 1);
 					money.addBalance(100);
 				} else {
 					

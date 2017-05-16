@@ -31,8 +31,6 @@ public class CommonProxy {
 		CapabilityHandler CHandler = new CapabilityHandler();
 		MinecraftForge.EVENT_BUS.register(CHandler);
 		
-		//need to register MONEY_CAP????
-		
 		CapabilityManager.INSTANCE.register(IMoney.class, new storage(), Money.class);
 		
 		SumPacketInstance.INSTANCE.registerMessage(MessageHandler.class, PacketCreator.class, 0, Side.SERVER);

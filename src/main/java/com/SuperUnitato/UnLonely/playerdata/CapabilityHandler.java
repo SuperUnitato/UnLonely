@@ -18,8 +18,8 @@ public class CapabilityHandler {
 
 	 {
 
-	 if (!(event.getCapabilities() instanceof EntityPlayer)) return;
-
+	 if (!(event.getObject() instanceof EntityPlayer)) return;
+	 	
 	 	event.addCapability(MONEY_CAP, new MoneyProvider());
 
 	 }
