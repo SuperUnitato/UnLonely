@@ -1,9 +1,9 @@
 package com.SuperUnitato.UnLonely.packets;
 
+import com.SuperUnitato.UnLonely.ModItems;
 import com.SuperUnitato.UnLonely.playerdata.IMoney;
 import com.SuperUnitato.UnLonely.playerdata.MoneyProvider;
 
-import init.ModItems;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

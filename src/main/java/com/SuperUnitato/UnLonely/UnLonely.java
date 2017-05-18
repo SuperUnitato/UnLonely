@@ -1,13 +1,11 @@
 package com.SuperUnitato.UnLonely;
 
+import com.SuperUnitato.UnLonely.init.ModBlocks;
 import com.SuperUnitato.UnLonely.packets.MessageHandler;
 import com.SuperUnitato.UnLonely.packets.PacketCreator;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
 import com.SuperUnitato.UnLonely.proxy.CommonProxy;
 
-import init.ModBlocks;
-import init.ModCrafting;
-import init.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

@@ -59,7 +59,7 @@ public class AtmWithdrawlScreen extends GuiScreen{
 	
 	@Override
 	public void actionPerformed(GuiButton Button) throws IOException{
-			SumPacketInstance.INSTANCE.sendToServer(new PacketCreator(Button.id));
+		SumPacketInstance.INSTANCE.sendToServer(new PacketCreator(Button.id));
 		super.actionPerformed(Button);
 	}
 	

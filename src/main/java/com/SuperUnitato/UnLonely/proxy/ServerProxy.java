@@ -9,8 +9,6 @@ import com.SuperUnitato.UnLonely.playerdata.Money;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
 import com.SuperUnitato.UnLonely.playerdata.storage;
 
-import init.ModBlocks;
-import init.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

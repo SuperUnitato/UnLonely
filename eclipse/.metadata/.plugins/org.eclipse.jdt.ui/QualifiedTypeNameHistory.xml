@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="items.ItemFiveDollar"/>
 <fullyQualifiedTypeName name="items.ItemTenDollar"/>
 <fullyQualifiedTypeName name="items.ItemTwentyDollar"/>
 <fullyQualifiedTypeName name="items.ItemOnehundredDollar"/>
@@ -16,9 +15,7 @@
 <fullyQualifiedTypeName name="net.minecraft.entity.EntityList"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.ai.EntityJumpHelper"/>
 <fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.proxy.CommonProxy"/>
-<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiScreen"/>
 <fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.client.gui.AtmMain"/>
-<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiButton"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="items.ItemOneDollar"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="net.minecraftforge.common.MinecraftForge"/>
 <fullyQualifiedTypeName name="net.minecraftforge.common.capabilities.CapabilityManager"/>
 <fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.playerdata.CapabilityHandler"/>
+<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiTextField"/>
+<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiButton"/>
+<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiScreen"/>
 </qualifiedTypeNameHistroy>

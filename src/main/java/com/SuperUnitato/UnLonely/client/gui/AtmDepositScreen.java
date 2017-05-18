@@ -7,10 +7,10 @@ import com.SuperUnitato.UnLonely.packets.MessageHandler;
 import com.SuperUnitato.UnLonely.packets.PacketCreator;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
 
-import init.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -39,12 +39,12 @@ public class AtmDepositScreen extends GuiScreen{
 	int onehundredButtonPosX = centerX;
 	int onehundredButtonPosY = centerY + 165;
 	
-	GuiButton onedollar;
-	GuiButton fivedollar;
-	GuiButton tendollar;
-	GuiButton twentydollar;
-	GuiButton fiftydollar;
-	GuiButton onehundreddollar;
+	GuiAtmButton onedollar;
+	GuiAtmButton fivedollar;
+	GuiAtmButton tendollar;
+	GuiAtmButton twentydollar;
+	GuiAtmButton fiftydollar;
+	GuiAtmButton onehundreddollar;
 	
 	final int ONEDOLLAR = 0;
 	final int FIVEDOLLAR = 1;
@@ -59,7 +59,7 @@ public class AtmDepositScreen extends GuiScreen{
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks){
-		drawDefaultBackground();
+		
 		int centerX = (width / 2) - (guiWidth / 2);
 		int centerY = (height/2) - (guiHeight/2);
 		Minecraft.getMinecraft().renderEngine.bindTexture(screen);
@@ -71,12 +71,12 @@ public class AtmDepositScreen extends GuiScreen{
 	@Override
 	public void initGui(){
 		buttonList.clear();
-		buttonList.add(onedollar = new GuiButton(ONEDOLLAR, oneButtonPosX, oneButtonPosY, 100, 20, "1"));
-		buttonList.add(fivedollar = new GuiButton(FIVEDOLLAR, fiveButtonPosX, fiveButtonPosY, 100, 20, "5"));
-		buttonList.add(tendollar = new GuiButton(TENDOLLAR, tenButtonPosX, tenButtonPosY, 100, 20, "10"));
-		buttonList.add(twentydollar = new GuiButton(TWENTYDOLLAR, twentyButtonPosX, twentyButtonPosY, 100, 20, "20"));
-		buttonList.add(fiftydollar = new GuiButton(FIFTYDOLLAR, fiftyButtonPosX, fiftyButtonPosY, 100, 20, "50"));
-		buttonList.add(onehundreddollar = new GuiButton(ONEHUNDREDDOLLAR, onehundredButtonPosX, onehundredButtonPosY, 100, 20, "100"));
+		buttonList.add(onedollar = new GuiAtmButton(ONEDOLLAR, oneButtonPosX, oneButtonPosY, null));
+		buttonList.add(fivedollar = new GuiAtmButton(FIVEDOLLAR, fiveButtonPosX, fiveButtonPosY, null));
+		buttonList.add(tendollar = new GuiAtmButton(TENDOLLAR, tenButtonPosX, tenButtonPosY, null));
+		buttonList.add(twentydollar = new GuiAtmButton(TWENTYDOLLAR, twentyButtonPosX, twentyButtonPosY, null));
+		buttonList.add(fiftydollar = new GuiAtmButton(FIFTYDOLLAR, fiftyButtonPosX, fiftyButtonPosY, null));
+		buttonList.add(onehundreddollar = new GuiAtmButton(ONEHUNDREDDOLLAR, onehundredButtonPosX, onehundredButtonPosY, null));
 		super.initGui();
 	}
 	
