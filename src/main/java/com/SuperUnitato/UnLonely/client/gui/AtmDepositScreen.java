@@ -23,8 +23,8 @@ public class AtmDepositScreen extends GuiScreen{
 	int guiHeight = 250;
 	int guiWidth = 125;
 	
-	int centerX = (width / 2) + 192;
-	int centerY = (height/2) + 10;
+	int centerX = (this.width / 2) + (guiWidth / 2);
+	int centerY = (this.height/2) - (guiHeight / 2);
 	
 	int oneButtonPosX = centerX;
 	int oneButtonPosY = centerY + 15 ;
@@ -59,7 +59,6 @@ public class AtmDepositScreen extends GuiScreen{
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks){
-		
 		int centerX = (width / 2) - (guiWidth / 2);
 		int centerY = (height/2) - (guiHeight/2);
 		Minecraft.getMinecraft().renderEngine.bindTexture(screen);

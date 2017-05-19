@@ -1,7 +1,8 @@
 package com.SuperUnitato.UnLonely.proxy;
 
 
-import com.SuperUnitato.UnLonely.ModItems;
+import com.SuperUnitato.UnLonely.init.ModBlocks;
+import com.SuperUnitato.UnLonely.init.ModItems;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

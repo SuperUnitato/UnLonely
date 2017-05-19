@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="items.ItemTenDollar"/>
-<fullyQualifiedTypeName name="items.ItemTwentyDollar"/>
-<fullyQualifiedTypeName name="items.ItemOnehundredDollar"/>
-<fullyQualifiedTypeName name="items.ItemFiftyDollar"/>
-<fullyQualifiedTypeName name="net.minecraft.client.renderer.block.model.ModelResourceLocation"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.common.registry.GameRegistry"/>
 <fullyQualifiedTypeName name="init.ModCrafting"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Items"/>
@@ -25,7 +20,6 @@
 <fullyQualifiedTypeName name="net.minecraftforge.fml.common.network.simpleimpl.IMessage"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayerMP"/>
 <fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
-<fullyQualifiedTypeName name="init.ModItems"/>
 <fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
 <fullyQualifiedTypeName name="net.minecraftforge.common.capabilities.ICapabilityProvider"/>
 <fullyQualifiedTypeName name="init.ModPlayerData"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="net.minecraft.client.gui.GuiTextField"/>
 <fullyQualifiedTypeName name="net.minecraft.client.gui.GuiButton"/>
 <fullyQualifiedTypeName name="net.minecraft.client.gui.GuiScreen"/>
+<fullyQualifiedTypeName name="init.ModItems"/>
+<fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.ModItems"/>
+<fullyQualifiedTypeName name="net.minecraftforge.client.model.ModelLoader"/>
+<fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.init.ModBlocks"/>
+<fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.init.ModCrafting"/>
+<fullyQualifiedTypeName name="com.SuperUnitato.UnLonely.init.ModItems"/>
 </qualifiedTypeNameHistroy>

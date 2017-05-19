@@ -49,49 +49,69 @@ public class GuiAtmButton extends GuiButton{
 
 	@Override
 	public void drawButton(Minecraft mc, int mouseX, int mouseY) {
-		if(visible){
+			
 			mc.renderEngine.bindTexture(buttons);
 			//ones
-			hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
-			if(hovered){
-				drawTexturedModalRect(xPosition, yPosition, oneHX, oneHY, buttonWidth, buttonHeight);
-			} else {
-				drawTexturedModalRect(xPosition, yPosition, oneX, oneY, buttonWidth, buttonHeight);
+			if(this.id == 0 || this.id == 6){
+				hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
+				if(hovered){
+					//given hovered pos in the .png file
+					drawTexturedModalRect(xPosition, yPosition, oneHX, oneHY, buttonWidth, buttonHeight);
+				} else {
+					//given unhovered pos in the .png file
+					drawTexturedModalRect(xPosition, yPosition, oneX, oneY, buttonWidth, buttonHeight);
+				}
 			}
 			
 			//fives
-			hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
-			if(hovered){
-				drawTexturedModalRect(xPosition, yPosition, fiveHX, fiveHY, buttonWidth, buttonHeight);
-			} else {
-				drawTexturedModalRect(xPosition, yPosition, fiveX, fiveY, buttonWidth, buttonHeight);
+			if(this.id == 1 || this.id == 7){
+				hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
+				if(hovered){
+					drawTexturedModalRect(xPosition, yPosition, fiveHX, fiveHY, buttonWidth, buttonHeight);
+				} else {
+					drawTexturedModalRect(xPosition, yPosition, fiveX, fiveY, buttonWidth, buttonHeight);
+				}
 			}
 			
 			//tens
-			hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
-			if(hovered){
-				drawTexturedModalRect(xPosition, yPosition, tenHX, tenHY, buttonWidth, buttonHeight);
-			} else {
-				drawTexturedModalRect(xPosition, yPosition, tenX, tenY, buttonWidth, buttonHeight);
+			if(this.id == 2 || this.id == 8){
+				hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
+				if(hovered){
+					drawTexturedModalRect(xPosition, yPosition, tenHX, tenHY, buttonWidth, buttonHeight);
+				} else {
+					drawTexturedModalRect(xPosition, yPosition, tenX, tenY, buttonWidth, buttonHeight);
+				}
+			}
+			
+			//twenties
+			if(this.id == 3 || this.id == 9){
+				hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
+				if(hovered){
+					drawTexturedModalRect(xPosition, yPosition, twentyHX, twentyHY, buttonWidth, buttonHeight);
+				} else {
+					drawTexturedModalRect(xPosition, yPosition, twentyX, twentyY, buttonWidth, buttonHeight);
+				}
 			}
 			
 			//fifty
-			hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
-			if(hovered){
-				drawTexturedModalRect(xPosition, yPosition, fiftyHX, fiftyHY, buttonWidth, buttonHeight);
-			} else {
-				drawTexturedModalRect(xPosition, yPosition, fiftyX, fiftyY, buttonWidth, buttonHeight);
+			if(this.id == 4 || this.id == 10){
+				hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
+				if(hovered){
+					drawTexturedModalRect(xPosition, yPosition, fiftyHX, fiftyHY, buttonWidth, buttonHeight);
+				} else {
+					drawTexturedModalRect(xPosition, yPosition, fiftyX, fiftyY, buttonWidth, buttonHeight);
+				}
 			}
 			
 			//onehundred
-			hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
-			if(hovered){
-				drawTexturedModalRect(xPosition, yPosition, onehundHX, onehundHY, buttonWidth, buttonHeight);
-			} else {
-				drawTexturedModalRect(xPosition, yPosition, onehundX, onehundY, buttonWidth, buttonHeight);
+			if(this.id == 5 || this.id == 11){
+				hovered = getHover(mouseX, xPosition, buttonWidth, mouseY, yPosition, buttonHeight);
+				if(hovered){
+					drawTexturedModalRect(xPosition, yPosition, onehundHX, onehundHY, buttonWidth, buttonHeight);
+				} else {
+					drawTexturedModalRect(xPosition, yPosition, onehundX, onehundY, buttonWidth, buttonHeight);
+				}
 			}
-			
-		}
 	}
 	
 	public boolean getHover(int mouseX, int xPosition, int buttonWidth, int mouseY, int yPosition, int buttonHeight){

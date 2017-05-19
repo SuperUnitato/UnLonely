@@ -1,6 +1,8 @@
 package com.SuperUnitato.UnLonely;
 
 import com.SuperUnitato.UnLonely.init.ModBlocks;
+import com.SuperUnitato.UnLonely.init.ModCrafting;
+import com.SuperUnitato.UnLonely.init.ModItems;
 import com.SuperUnitato.UnLonely.packets.MessageHandler;
 import com.SuperUnitato.UnLonely.packets.PacketCreator;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;

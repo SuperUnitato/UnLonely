@@ -1,5 +1,6 @@
 package com.SuperUnitato.UnLonely.init;
 
+import com.SuperUnitato.UnLonely.Reference;
 import com.SuperUnitato.UnLonely.blocks.BlockAtm;
 
 import items.ItemFiftyDollar;
@@ -13,6 +14,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
@@ -47,8 +50,8 @@ public class ModBlocks {
 	}
 
 	private static void registerRender(Block block) {
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0,
-				new ModelResourceLocation(block.getRegistryName(), "inventory"));
+		final ModelResourceLocation atm = new ModelResourceLocation(Reference.MOD_ID, "textures/gui/mainscreen.png");
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, atm);
 	}
 
 }

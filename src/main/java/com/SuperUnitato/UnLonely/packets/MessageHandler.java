@@ -1,6 +1,7 @@
 package com.SuperUnitato.UnLonely.packets;
 
-import com.SuperUnitato.UnLonely.ModItems;
+
+import com.SuperUnitato.UnLonely.init.ModItems;
 import com.SuperUnitato.UnLonely.playerdata.IMoney;
 import com.SuperUnitato.UnLonely.playerdata.MoneyProvider;
 
