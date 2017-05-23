@@ -85,6 +85,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 					slot = serverPlayer.inventory.getSlotFor(fifty);
 					serverPlayer.inventory.decrStackSize(slot, 1);
 					money.addBalance(50);
+					System.out.println(money.getBalance());
 				} else {
 					
 				}
