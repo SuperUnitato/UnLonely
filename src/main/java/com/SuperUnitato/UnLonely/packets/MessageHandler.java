@@ -4,6 +4,7 @@ package com.SuperUnitato.UnLonely.packets;
 import com.SuperUnitato.UnLonely.init.ModItems;
 import com.SuperUnitato.UnLonely.playerdata.IMoney;
 import com.SuperUnitato.UnLonely.playerdata.MoneyProvider;
+import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -43,7 +44,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 					slot = serverPlayer.inventory.getSlotFor(one);
 					serverPlayer.inventory.decrStackSize(slot, 1);
 					money.addBalance(1);
-					System.out.println(money.getBalance());
+					SumPacketInstance.INSTANCE.sendTo(new PacketCreator(ID), serverPlayer);
 				} else {
 					
 				}
