@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CapabilityHandler {
 	
 	public static final ResourceLocation MONEY_CAP = new ResourceLocation(Reference.MOD_ID, "money");
+	public static final ResourceLocation SHOP_CAP = new ResourceLocation(Reference.MOD_ID, "shops");
 	
 	 @SubscribeEvent
 	 public void attachCapability(AttachCapabilitiesEvent<Entity> event)
@@ -20,6 +21,7 @@ public class CapabilityHandler {
 
 	 if (!(event.getObject() instanceof EntityPlayer)) return;
 	 	
+	 	event.addCapability(SHOP_CAP, new ShopProvider());
 	 	event.addCapability(MONEY_CAP, new MoneyProvider());
 
 	 }

@@ -1,13 +1,13 @@
 package com.SuperUnitato.UnLonely.init;
 
 import com.SuperUnitato.UnLonely.Reference;
+import com.SuperUnitato.UnLonely.items.ItemFiftyDollar;
+import com.SuperUnitato.UnLonely.items.ItemFiveDollar;
+import com.SuperUnitato.UnLonely.items.ItemOneDollar;
+import com.SuperUnitato.UnLonely.items.ItemOnehundredDollar;
+import com.SuperUnitato.UnLonely.items.ItemTenDollar;
+import com.SuperUnitato.UnLonely.items.ItemTwentyDollar;
 
-import items.ItemFiftyDollar;
-import items.ItemFiveDollar;
-import items.ItemOneDollar;
-import items.ItemOnehundredDollar;
-import items.ItemTenDollar;
-import items.ItemTwentyDollar;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

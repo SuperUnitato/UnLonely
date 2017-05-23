@@ -1,5 +1,6 @@
 package com.SuperUnitato.UnLonely;
 
+import com.SuperUnitato.UnLonely.client.gui.MoneyOverlay;
 import com.SuperUnitato.UnLonely.init.ModBlocks;
 import com.SuperUnitato.UnLonely.init.ModCrafting;
 import com.SuperUnitato.UnLonely.init.ModItems;
@@ -12,6 +13,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -57,6 +59,7 @@ public class UnLonely {
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event)
 	{
+		MinecraftForge.EVENT_BUS.register(new MoneyOverlay());
 		proxy.postInit(event);
 	}
 	

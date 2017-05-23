@@ -15,14 +15,6 @@ public class AtmMain extends GuiScreen{
 	int guiHeight = 250;
 	int guiWidth = 125;
 	
-	int centerX = (width/2) + 165;
-	int centerY = (height/2) + 45;
-	
-	int depositButtonX = centerX;
-	int depositButtonY = centerY;
-	int withdrawlButtonX = centerX;
-	int withdrawlButtonY = centerY + 85;
-	
 	GuiButton deposit;
 	GuiButton withdrawl;
 	final int DEPOSIT = 0;
@@ -37,14 +29,18 @@ public class AtmMain extends GuiScreen{
 		drawTexturedModalRect(centerX, centerY, 0, 0, guiWidth, guiHeight);
 		fontRendererObj.drawString("SuperU Banking", (width / 2) - fontRendererObj.getStringWidth("SuperU Banking") / 2, centerY + 5, 0x504745);
 		super.drawScreen(mouseX, mouseY, partialTicks);
+		super.updateScreen();
 	}
 	
 	@Override
 	public void initGui(){
+		int buttonCenterX = (width / 2) - (guiWidth / 2) + (width / 30);
+		int buttonCenterY = (height / 2) - (guiHeight / 2) + 20;
 		buttonList.clear();
-		buttonList.add(deposit = new GuiButton(DEPOSIT, depositButtonX, depositButtonY, 100, 20, "Deposit"));
-		buttonList.add(withdrawl = new GuiButton(WITHDRAWL, withdrawlButtonX, withdrawlButtonY, 100, 20, "Withdrawl"));
+		buttonList.add(deposit = new GuiButton(DEPOSIT, buttonCenterX, buttonCenterY, 100, 20, "Deposit"));
+		buttonList.add(withdrawl = new GuiButton(WITHDRAWL, buttonCenterX, buttonCenterY + 85, 100, 20, "Withdrawl"));
 		super.initGui();
+		super.updateScreen();
 	}
 	
 	@Override

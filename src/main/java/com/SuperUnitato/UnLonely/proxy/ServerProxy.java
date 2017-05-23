@@ -7,7 +7,7 @@ import com.SuperUnitato.UnLonely.playerdata.EventHandler;
 import com.SuperUnitato.UnLonely.playerdata.IMoney;
 import com.SuperUnitato.UnLonely.playerdata.Money;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
-import com.SuperUnitato.UnLonely.playerdata.storage;
+import com.SuperUnitato.UnLonely.playerdata.MoneyStorage;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;

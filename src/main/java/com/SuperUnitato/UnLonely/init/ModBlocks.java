@@ -3,12 +3,7 @@ package com.SuperUnitato.UnLonely.init;
 import com.SuperUnitato.UnLonely.Reference;
 import com.SuperUnitato.UnLonely.blocks.BlockAtm;
 
-import items.ItemFiftyDollar;
-import items.ItemFiveDollar;
-import items.ItemOneDollar;
-import items.ItemOnehundredDollar;
-import items.ItemTenDollar;
-import items.ItemTwentyDollar;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 
-public class storage implements Capability.IStorage<IMoney>{
+public class MoneyStorage implements Capability.IStorage<IMoney>{
 
 	@Override
 	public NBTBase writeNBT(Capability<IMoney> capability, IMoney instance, EnumFacing side) {

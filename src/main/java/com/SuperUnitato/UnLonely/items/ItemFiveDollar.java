@@ -1,4 +1,4 @@
-package items;
+package com.SuperUnitato.UnLonely.items;
 
 import com.SuperUnitato.UnLonely.Reference;
 import com.SuperUnitato.UnLonely.UnLonely;

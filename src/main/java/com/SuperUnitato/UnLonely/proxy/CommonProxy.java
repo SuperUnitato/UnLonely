@@ -5,9 +5,12 @@ import com.SuperUnitato.UnLonely.packets.PacketCreator;
 import com.SuperUnitato.UnLonely.playerdata.CapabilityHandler;
 import com.SuperUnitato.UnLonely.playerdata.EventHandler;
 import com.SuperUnitato.UnLonely.playerdata.IMoney;
+import com.SuperUnitato.UnLonely.playerdata.IShop;
 import com.SuperUnitato.UnLonely.playerdata.Money;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
-import com.SuperUnitato.UnLonely.playerdata.storage;
+import com.SuperUnitato.UnLonely.playerdata.MoneyStorage;
+import com.SuperUnitato.UnLonely.playerdata.Shop;
+import com.SuperUnitato.UnLonely.playerdata.ShopStorage;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -31,7 +34,8 @@ public class CommonProxy {
 		CapabilityHandler CHandler = new CapabilityHandler();
 		MinecraftForge.EVENT_BUS.register(CHandler);
 		
-		CapabilityManager.INSTANCE.register(IMoney.class, new storage(), Money.class);
+		CapabilityManager.INSTANCE.register(IMoney.class, new MoneyStorage(), Money.class);
+		CapabilityManager.INSTANCE.register(IShop.class, new ShopStorage(), Shop.class);
 		
 		SumPacketInstance.INSTANCE.registerMessage(MessageHandler.class, PacketCreator.class, 0, Side.SERVER);
 	}
