@@ -16,8 +16,17 @@ public class PacketCreator implements IMessage{
 	
 	  protected int toSend;
 	  
+	  //ammount is just for syncing with client upon log in
+	  protected int ammount;
+	  
 	  public PacketCreator(int toSend) {
 	    this.toSend = toSend;
+	  }
+	  
+	  //for syncing on client upon log in
+	  public PacketCreator(int toSend, int ammount){
+		  this.toSend = toSend;
+		  this.ammount = ammount;
 	  }
 
 	  @Override

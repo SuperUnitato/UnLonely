@@ -3,11 +3,13 @@ package com.SuperUnitato.UnLonely.client.gui;
 import java.io.IOException;
 
 import com.SuperUnitato.UnLonely.Reference;
+import com.SuperUnitato.UnLonely.playerdata.IMoney;
 import com.SuperUnitato.UnLonely.playerdata.MoneyProvider;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 
 public class AtmMain extends GuiScreen{
@@ -24,16 +26,15 @@ public class AtmMain extends GuiScreen{
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks){
 		
-		Minecraft mc = Minecraft.getMinecraft();
-		final int ammount = mc.player.getCapability(MoneyProvider.MONEY_CAP, null).getBalance();
-		String SAmmount = Integer.toString(ammount);
+		int ammount = Minecraft.getMinecraft().player.getCapability(MoneyProvider.MONEY_CAP, null).getBalance();
+		//String SAmmount = Integer.toString(ammount);
 		
 		int centerX = (width/2) - (guiWidth/2);
 		int centerY = (height/2) - (guiHeight/2);
 		Minecraft.getMinecraft().renderEngine.bindTexture(screen);
 		drawTexturedModalRect(centerX, centerY, 0, 0, guiWidth, guiHeight);
 		fontRendererObj.drawString("SuperU Banking", (width / 2) - fontRendererObj.getStringWidth("SuperU Banking") / 2, centerY + 5, 0x504745);
-		fontRendererObj.drawString("You currently have $" + SAmmount, (width / 2) - fontRendererObj.getStringWidth("You Currently have $ " + SAmmount) / 2, centerY + 75, 0x2be367);
+		fontRendererObj.drawString("You currently have $" + ammount, (width / 2) - fontRendererObj.getStringWidth("You Currently have $ " + ammount) / 2, centerY + 75, 0x2be367);
 		
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		super.updateScreen();
@@ -71,4 +72,5 @@ public class AtmMain extends GuiScreen{
     {
         return false;
     }
+	
 }

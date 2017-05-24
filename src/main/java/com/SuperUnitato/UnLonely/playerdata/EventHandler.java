@@ -1,6 +1,9 @@
 package com.SuperUnitato.UnLonely.playerdata;
 
+import com.SuperUnitato.UnLonely.packets.PacketCreator;
+
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -11,6 +14,8 @@ public class EventHandler {
 	 public void onPlayerLogsIn(PlayerLoggedInEvent event)
 	 {
 		 EntityPlayer player = event.player;
+		 
+		 SumPacketInstance.INSTANCE.sendToServer(new PacketCreator(-1));
 	
 		 IMoney money = player.getCapability(MoneyProvider.MONEY_CAP, null);
 		 IShop shops = player.getCapability(ShopProvider.SHOP_CAP, null);

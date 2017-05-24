@@ -6,6 +6,9 @@ import com.SuperUnitato.UnLonely.playerdata.IMoney;
 import com.SuperUnitato.UnLonely.playerdata.MoneyProvider;
 import com.SuperUnitato.UnLonely.playerdata.SumPacketInstance;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,6 +21,8 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 	
 	private int slot;
 	
+	//neeed to add shops capability
+	
 	ItemStack one = new ItemStack(ModItems.onedollar);
 	ItemStack five = new ItemStack(ModItems.fivedollar);
 	ItemStack ten = new ItemStack(ModItems.tendollar);
@@ -28,135 +33,189 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 	@Override
 	public IMessage onMessage(PacketCreator message, MessageContext ctx) {
 		
-		EntityPlayerMP serverPlayer = ctx.getServerHandler().playerEntity;
-		IMoney money = serverPlayer.getCapability(MoneyProvider.MONEY_CAP, null);
-		int ID = message.toSend;
-
-		//money seems to be null
-		if(!(money != null)){
-			System.out.println("money bad");
-		}
+		if(ctx.side.isServer()){
+			EntityPlayerMP serverPlayer = ctx.getServerHandler().playerEntity;
 		
-		switch(ID){
-			//deposits
-			case 0:
-				if(serverPlayer.inventory.hasItemStack(one)){
-					slot = serverPlayer.inventory.getSlotFor(one);
-					serverPlayer.inventory.decrStackSize(slot, 1);
-					money.addBalance(1);
-					SumPacketInstance.INSTANCE.sendTo(new PacketCreator(ID), serverPlayer);
-				} else {
+		
+			IMoney money = serverPlayer.getCapability(MoneyProvider.MONEY_CAP, null);
+			int ID = message.toSend;
+			
+			switch(ID){
+				case -1:
+					final int ammount = money.getBalance();
+					SumPacketInstance.INSTANCE.sendTo(new PacketCreator(-1, ammount), serverPlayer);
+					break;
 					
-				}
-				break;
-				
-			case 1:
-				if(serverPlayer.inventory.hasItemStack(five)){
-					slot = serverPlayer.inventory.getSlotFor(five);
-					serverPlayer.inventory.decrStackSize(slot, 1);
-					money.addBalance(5);
-				} else {
+				//deposits
+				case 0:
+					if(serverPlayer.inventory.hasItemStack(one)){
+							slot = serverPlayer.inventory.getSlotFor(one);
+							serverPlayer.inventory.decrStackSize(slot, 1);
+							money.addBalance(1);	
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					} 
+					break;
 					
-				}
+				case 1:
+					if(serverPlayer.inventory.hasItemStack(five)){
+							slot = serverPlayer.inventory.getSlotFor(five);
+							serverPlayer.inventory.decrStackSize(slot, 1);
+							money.addBalance(5);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					} 
+					break;
 				
+				case 2:
+					if(serverPlayer.inventory.hasItemStack(ten)){
+							slot = serverPlayer.inventory.getSlotFor(ten);
+							serverPlayer.inventory.decrStackSize(slot, 1);
+							money.addBalance(10);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					}
+					break;
+					
+				case 3:
+					if(serverPlayer.inventory.hasItemStack(twenty)){
+							slot = serverPlayer.inventory.getSlotFor(twenty);
+							serverPlayer.inventory.decrStackSize(slot, 1);
+							money.addBalance(20);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					}
+					break;
+					
+				case 4:
+					if(serverPlayer.inventory.hasItemStack(fifty)){
+							slot = serverPlayer.inventory.getSlotFor(fifty);
+							serverPlayer.inventory.decrStackSize(slot, 1);
+							money.addBalance(50);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					} 
+					break;
+					
+				case 5:
+					if(serverPlayer.inventory.hasItemStack(onehundred)){
+							slot = serverPlayer.inventory.getSlotFor(onehundred);
+							serverPlayer.inventory.decrStackSize(slot, 1);
+							money.addBalance(100);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					} 
+					break;
+					
+				//withdrawls
+				case 6:
+					if(money.getBalance() >= 1){
+							serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.onedollar, 1));
+							money.takeBalance(1);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					}
+					break;
+					
+				case 7:
+					if(money.getBalance() >= 5){
+							serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.fivedollar, 1));
+							money.takeBalance(5);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					}
+					break;
+					
+				case 8:
+					if(money.getBalance() >= 10){
+							serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.tendollar, 1));
+							money.takeBalance(10);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					} 
+					break;
+					
+				case 9:
+					if(money.getBalance() >= 20){
+							serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.twentydollar, 1));
+							money.takeBalance(20);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					} 
+					break;
+					
+				case 10:
+					if(money.getBalance() >= 50){
+							serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.fiftydollar, 1));
+							money.takeBalance(50);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					}
+					break;
+					
+				case 11:
+					if(money.getBalance() >= 100){
+							serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.onehundreddollar, 1));
+							money.takeBalance(100);
+							SumPacketInstance.INSTANCE.sendTo(message, serverPlayer);
+					}
+					break;
+			}
+		//client side
+		} else if(ctx.side.isClient()){
+			
+			EntityPlayerSP serverPlayer = Minecraft.getMinecraft().player;
+	
+			IMoney money = serverPlayer.getCapability(MoneyProvider.MONEY_CAP, null);
+			int ID = message.toSend;
+			
+			//no need to check since the packet is sent from server side where the conditions have been checked
+			
+			switch(ID){
+			//sync
+			case -1:
+				money.setBalance(message.ammount);
 				break;
 			
-			case 2:
-				if(serverPlayer.inventory.hasItemStack(ten)){
-						slot = serverPlayer.inventory.getSlotFor(ten);
-						serverPlayer.inventory.decrStackSize(slot, 1);
-						money.addBalance(10);
-				} else {
+				//deposits
+				case 0:
+						money.addBalance(1);	
+					break;
 					
-				}
-				break;
+				case 1:
+						money.addBalance(5);
+					break;
 				
-			case 3:
-				if(serverPlayer.inventory.hasItemStack(twenty)){
-						slot = serverPlayer.inventory.getSlotFor(twenty);
-						serverPlayer.inventory.decrStackSize(slot, 1);
-						money.addBalance(20);
-				} else {
+				case 2:
+					money.addBalance(10);
+					break;
 					
-				}
-				break;
-				
-			case 4:
-				if(serverPlayer.inventory.hasItemStack(fifty)){
-					slot = serverPlayer.inventory.getSlotFor(fifty);
-					serverPlayer.inventory.decrStackSize(slot, 1);
-					money.addBalance(50);
-					System.out.println(money.getBalance());
-				} else {
+				case 3:
+					money.addBalance(20);
+					break;
 					
-				}
-				break;
-				
-			case 5:
-				if(serverPlayer.inventory.hasItemStack(onehundred)){
-					slot = serverPlayer.inventory.getSlotFor(onehundred);
-					serverPlayer.inventory.decrStackSize(slot, 1);
+				case 4:
+					money.addBalance(50); 
+					break;
+					
+				case 5:
 					money.addBalance(100);
-				} else {
+					break;
 					
-				}
-				break;
-				
-			//withdrawls
-			case 6:
-				if(money.getBalance() >= 1){
-					serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.onedollar, 1));
+				//withdrawls
+				case 6:
 					money.takeBalance(1);
-				} else {
+					break;
 					
-				}
-				break;
-				
-			case 7:
-				if(money.getBalance() >= 5){
-					serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.fivedollar, 1));
+				case 7:
 					money.takeBalance(5);
-				} else {
+					break;
 					
-				}
-				break;
-				
-			case 8:
-				if(money.getBalance() >= 10){
-					serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.tendollar, 1));
+				case 8:
 					money.takeBalance(10);
-				} else {
+					break;
 					
-				}
-				break;
-				
-			case 9:
-				if(money.getBalance() >= 20){
-					serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.twentydollar, 1));
+				case 9:
 					money.takeBalance(20);
-				} else {
+					break;
 					
-				}
-				break;
-				
-			case 10:
-				if(money.getBalance() >= 50){
-					serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.fiftydollar, 1));
+				case 10:
 					money.takeBalance(50);
-				} else {
+					break;
 					
-				}
-				break;
-				
-			case 11:
-				if(money.getBalance() >= 100){
-					serverPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.onehundreddollar, 1));
+				case 11:
 					money.takeBalance(100);
-				} else {
-					
-				}
-				break;
+					break;
 		}
-		return null;
 	}
-}
+		return null;
+	}}

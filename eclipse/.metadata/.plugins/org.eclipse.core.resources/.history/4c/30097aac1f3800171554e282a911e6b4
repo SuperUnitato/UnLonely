@@ -1,7 +1,0 @@
-package com.SuperUnitato.UnLonely.playerdata;
-
-public class storage implements Capability.IStorage<moneyCapabilty>{
-
-	
-
-}

@@ -38,6 +38,7 @@ public class CommonProxy {
 		CapabilityManager.INSTANCE.register(IShop.class, new ShopStorage(), Shop.class);
 		
 		SumPacketInstance.INSTANCE.registerMessage(MessageHandler.class, PacketCreator.class, 0, Side.SERVER);
+		SumPacketInstance.INSTANCE.registerMessage(MessageHandler.class, PacketCreator.class, 1, Side.CLIENT);
 	}
 	
 	public void postInit(FMLPostInitializationEvent event){
