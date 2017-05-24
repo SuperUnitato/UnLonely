@@ -41,6 +41,7 @@ public class MessageHandler implements IMessageHandler<PacketCreator, IMessage>{
 			int ID = message.toSend;
 			
 			switch(ID){
+				//for syncing on log in
 				case -1:
 					final int ammount = money.getBalance();
 					SumPacketInstance.INSTANCE.sendTo(new PacketCreator(-1, ammount), serverPlayer);

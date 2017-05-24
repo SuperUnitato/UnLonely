@@ -14,11 +14,11 @@ public class EventHandler {
 	 public void onPlayerLogsIn(PlayerLoggedInEvent event)
 	 {
 		 EntityPlayer player = event.player;
-		 
-		 SumPacketInstance.INSTANCE.sendToServer(new PacketCreator(-1));
-	
+		
 		 IMoney money = player.getCapability(MoneyProvider.MONEY_CAP, null);
 		 IShop shops = player.getCapability(ShopProvider.SHOP_CAP, null);
+		 
+		 SumPacketInstance.INSTANCE.sendToServer(new PacketCreator(-1));
 	 }
 	
 	@SubscribeEvent
